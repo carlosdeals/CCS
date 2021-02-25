@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<style>
+
+
+footer {
+  background-color: lightblue;
+  padding: 10px;
+  text-align: center;
+  color: black;
+}
+
+</style>
+<head>
+    <title> Carlos' Computer Service </title>
+</head>
+<body style="background-color:LightGray;">
+
+   	{% include 'navbar.html' %}
+
+   	{% block content %}
+    	replace me
+   	{% endblock %} 
+
+<footer>
+
+<p align="left"> Copyright &#169; 2020 Carlos' Computer Service </p>
+<nav>
+	<a href = "."> Home </a> |
+	<a href = "products"> Products </a> |
+	<a href = "blog"> Blog </a> |
+	<a href = "social"> Social </a> |
+	<a href = "about"> About </a> |
+	<a href = "contact"> Contact </a>
+</nav>
+</footer>
+
+</body>
+</html>

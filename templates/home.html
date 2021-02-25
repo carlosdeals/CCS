@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<head>
+<meta name = "viewport" content = "width=device-width, initial-scale=1">
+<style>
+.container {
+  position: relative;
+  text-align: center;
+  color: black;
+}
+
+.bottom-left {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+.centered {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+</style>
+</head>
+<body>
+
+<div class = "container";>
+  <img src = "https://img1.wsimg.com/isteam/stock/lbO0k74/:/cr=t:0%25,l:0%25,w:100%25,h:100%25/rs=w:1040,h:460,cg:true,m/cr=w:1040,h:460,ax:50%25,ay:50%25" alt="Snow" style = "width:100%;">
+  
+  <div class = "centered"> <h1> Carlos' Computer Service </h1> </div>
+  <div class = "bottom-left"> <h2> An Online Store with Flair! </h2> </div>
+</div>
+
+<hr>
+
+<div> 
+		<h3 align = "center" style= "background-color:DodgerBlue; color:black"> 
+			<p> Welcome! </p> 
+			<p> There is so much to see here. Take some time to learn more about us on our About page and see all that we have for sale in our Store. If you have any questions, just ask! </p> 
+		</h3>
+
+</div>
+
+<hr>
+
+<div align="center">
+ <iframe width="620" height="415" 
+src="https://www.youtube.com/embed/watch?v=0qlwBkGNfCo&list=PLuYYDQTFKHtmrf_h_xut6cA7051VRQWkN&index=3&ab_channel=SDHacks?autoplay=1&mute=1">
+</iframe> 
+</div>
+
+</body>
+
+{% endblock %}
+
+

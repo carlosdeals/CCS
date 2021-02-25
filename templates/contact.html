@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.row {
+  display: flex;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 10px;
+  height: 475px; /* Should be removed. Only for demonstration */
+}
+</style>
+</head>
+
+<body>
+<h1 align="center"> Welcome to our Contact page </h1>
+
+<h2>Contact Us</h2>
+
+<div class="row">
+  <div class="column" style="background-color:#aaa;">
+    
+    <h2 align="center"> Better yet, see us in person! </h2>
+    <br>
+    <p align="center"> We love our customers, so feel free to visit during normal business hours by booking an appointment. Please be advised that face masks are required. </p>
+    <br>
+    <h2 align="center"> Carlos' Computer Service </h2>
+    <p align="center">2105 Clark St Apt19</p>
+    <p align="center">Charles City, IA 50616</p>
+    <p align="center">Phone: (641) 812-2947</p>
+    <br>
+    <h3 align="center">Customer Service</h3>
+    <a href = "mailto:carlos@carloscompserv.com?subject = Feedback&body = Message">
+		<p align="center">carlos@carloscompserv.com</p>
+		</a>
+    <br>
+  </div>
+  <div class="column" style="background-color:#bbb;">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.1942380300047!2d-92.65982068438124!3d43.058382198706475!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87f064879721d453%3A0xa39ab3b5c19bca02!2s2105%20Clark%20St%20APT%2019%2C%20Charles%20City%2C%20IA%2050616!5e0!3m2!1sen!2sus!4v1614196450696!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
+{% endblock %}
