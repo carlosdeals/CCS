@@ -1,13 +1,24 @@
+from .models import Post
+#from django.template.defaultfilters import slugify
 from django import forms
+from .models import Comment
+from .models import Feedback
 
-from .models import Article
+class EmailPostForm(forms.Form):
+    name = forms.CharField(max_length=25)
+    email = forms.EmailField()
+    to = forms.EmailField()
+    comments = forms.CharField(required=False, widget=forms.Textarea)
 
 
-class ArticleModelForm(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
-        model = Article
-        fields =[
-            'title',
-            'content',
-            'active',
-        ]
+        model = Comment
+        fields = ('name', 'email', 'body')
+
+class FeedbackForm(forms.ModelForm):
+
+    class Meta:
+        model = Feedback
+        fields = '__all__'
+

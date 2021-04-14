@@ -6,7 +6,7 @@ from .models import Product
 
 class ProductForm(forms.ModelForm):
     
-    title       = forms.CharField(label = '', 
+    name       = forms.CharField(label = '', 
                   widget = forms.TextInput(
                         attrs = {
                             "placeholder": "Title",
@@ -43,11 +43,11 @@ class ProductForm(forms.ModelForm):
                         )
                     )
 
-    summary     = forms.CharField(label = '',
+    brand     = forms.CharField(label = '',
                         required = False,
                         widget = forms.Textarea(
                             attrs = {
-                                "placeholder": "Summary",
+                                "placeholder": "Brand",
                                 "rows": 10,
                                 "cols": 60
                             }
@@ -57,22 +57,22 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = [
-            'title',
+            'name',
             'description',
             'price',
-            'summary',
+            'brand',
         ]
 
     def clean_title(self, *args, **kwargs):
-        title = self.cleaned_data.get("title")
-        return title 
+        name = self.cleaned_data.get("title")
+        return name 
 
 #    def clean_email(self, *args, **kwargs):
 #        email = self.cleaned_data.get("email")
 #        return email
 
 class RawProductForm(forms.Form):
-    title       = forms.CharField(label = '', 
+    name       = forms.CharField(label = '', 
                   widget = forms.TextInput(
                         attrs = {
                             "placeholder": "Your Title",
@@ -107,11 +107,11 @@ class RawProductForm(forms.Form):
                             }
                         )
                     )
-    summary     = forms.CharField(label = '',
+    brand     = forms.CharField(label = '',
                         required = False,
                         widget = forms.Textarea(
                             attrs = {
-                                "placeholder": "Your Summary",
+                                "placeholder": "Your Brand",
                             }
                         )
                     )

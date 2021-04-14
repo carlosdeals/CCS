@@ -25,6 +25,7 @@ SECRET_KEY = '=q=1t)g!pw1)-d8hanb(6qb)ba3^eo)!czc*@vdrg2g8e0w5m=u$'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 ALLOWED_HOSTS = []
 
 
@@ -44,7 +45,21 @@ INSTALLED_APPS = [
     'blog',
     'courses',
     'pages',
-    'products',
+    'media',
+    'users',
+    'cart',
+    'shop',
+    'orders',
+    'paypal.standard.ipn',
+    'payment',
+    'coupons',
+    'rosetta',
+    'parler',
+    'localflavor',
+    'categories.editor',
+    'crispy_forms',
+
+    
 ]
 
 MIDDLEWARE = [
@@ -55,6 +70,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.common.BrokenLinkEmailsMiddleware',
+    
 ]
 
 ROOT_URLCONF = 'ccs.urls'
@@ -70,6 +87,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'cart.context_processors.cart',
+
             ],
         },
     },
@@ -83,8 +102,14 @@ WSGI_APPLICATION = 'ccs.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",},
+        'NAME': 'carloscompserv',
+        'USER': 'carlos134',
+        'PASSWORD': '#4Sophiam',
+        'HOST': 'carloscompserv.com',
+        'PORT': '3306',
     }
 }
 
@@ -93,11 +118,15 @@ DATABASES = {
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
+    
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+            'Options': {
+                'min_length': 9,
+            }
     },
     {
         'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
@@ -113,7 +142,18 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+from django.utils.translation import gettext_lazy as _
+
+LANGUAGES = (
+    ('en', _('English')),
+    ('es', _('Spanish')),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale/'),
+)
+
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -126,3 +166,59 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = [ 
+    os.path.join(BASE_DIR, 'static')
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'dashboard'
+LOGOUT_REDIRECT_URL = 'dashboard'
+
+#DataFlair
+SERVER_EMAIL = 'cmontez1178@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_PASSWORD = '4Sophiam'
+EMAIL_HOST_USER = SERVER_EMAIL
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+ADMINS = [
+    ('carlos134', 'cmontez1178@gmail.com'),
+]
+
+MANAGERS = ADMINS
+
+
+CART_SESSION_ID = 'cart'
+
+# django-paypal settings
+PAYPAL_RECEIVER_EMAIL = 'carlos134@hotmail.com'
+PAYPAL_TEST = True
+
+# django-parler settings
+PARLER_LANGUAGES = {
+    None: (
+        {'code': 'en',},
+        {'code': 'es',},
+    ),
+    'default': {
+        'fallback': 'en',
+        'hide_untranslated': False,
+    }
+}
+
+# redis settings
+REDIS_HOST = 'localhost'
+REDIS_PORT = 8000
+REDIS_DB = 1
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
+
+

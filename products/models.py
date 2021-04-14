@@ -4,13 +4,13 @@ from django.urls import reverse
 # Create your models here.
 class Product(models.Model):
 	
-	title 		= models.CharField(max_length = 120)
+	name 		= models.CharField(max_length = 120)
 	description = models.TextField(blank = True, null = True)
-	price 		= models.DecimalField(decimal_places = 2, max_digits = 10000, max_length = 20)
-	summary		= models.TextField(blank = False, null = False)
-	featured	= models.BooleanField(default = False)
+	price 		= models.FloatField()
+	brand		= models.TextField(blank = True, null = True)
+	inventory	= models.BooleanField(default = False)
+	image 		= models.ImageField(upload_to='products/', blank = True, null = True)
 
 	def get_absolute_url(self):
 		return reverse("products:product-detail", kwargs = {"id": self.id})
 
-	

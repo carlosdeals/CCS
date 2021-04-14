@@ -11,6 +11,8 @@ def home_view(request, *args, **kwargs): # *args, **kwargs
 def contact_view(request, *args, **kwargs):
     return render(request, "contact.html", {})
 
+# def password_change_form_view(request, *args, **kwargs):
+    # return render(request, "password_change_form.html", {})
 
 def about_view(request, *args, **kwargs):
     my_context = {
@@ -29,3 +31,16 @@ def social_view(request, *args, **kwargs):
         "title": "Welcome to our Social Page",
     }
     return render(request, "social.html", my_context)
+
+
+def profile_view(request, *args, **kwargs):
+    my_context = {
+        "title": "Welcome to our Profile Page",
+    }
+    return render(request, "profile.html", my_context)
+
+def change_view(request, *args, **kwargs):
+    my_context = {
+        "title": "Welcome to our Profile Page",
+    }
+    return render(request, "users/password_change_form.html", my_context)

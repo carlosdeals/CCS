@@ -1,0 +1,23 @@
+<!--users/templates/users/register.html-->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div align="center">
+<h2>Register</h2>
+</div>
+<br>
+<div align="center">
+<form method="post">
+    {% csrf_token %}
+    {{form}}
+    <input type="submit" value="Register">
+</form>
+</div>
+<br>
+<div align="center">
+<a href="{% url 'login' %}">Back to login</a>
+</div>
+
+{% endblock %}

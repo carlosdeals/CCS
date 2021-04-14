@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block content %}
+
+<h1>Django Image Uploading</h1>
+<ul>
+  {% for post in object_list %}
+    <h2>{{ media.title }}</h2>
+    <img src="{{ media.cover.url}}" alt="{{ media.title }}">
+  {% endfor %}
+</ul>
+
+{% endblock %}
